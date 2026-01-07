@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ROOT_DIR="users_logged"
-cd
 mkdir -p "$ROOT_DIR"
 
 while true;
@@ -11,7 +10,7 @@ do
 	do
 		user_dir="$ROOT_DIR/$user"
 		mkdir -p "$user_dir"
-		ps -u "$user" -o pid,command --no-headers > "$user_dir/procs"
+		ps -u "$user" -o pid,comm --no-headers > "$user_dir/procs"
 		rm -f "$user_dir/lastlogin"	
 	done
 	for dir in "$ROOT_DIR"/*;
@@ -20,9 +19,8 @@ do
 		if ! echo "$current_users" | grep -qx "$username"; then
 			echo ' ' > "$dir/procs"
 			if [ ! -f "$dir/lastlogin" ]; then
-				last -R "$username" | awk '/gone - no logout/' | head -n -1|  cut -d' ' -f14-18 > "$dir/lastlogin"
-				echo "Last updated: " >> "$dir/lastlogin" 
-				date >> "$dir/lastlogin"
+				echo "Last updated: " > "$dir/lastlogin" 
+				date +"%A %B %d %Y %T" >> "$dir/lastlogin"
 			fi
 		fi
 	done
