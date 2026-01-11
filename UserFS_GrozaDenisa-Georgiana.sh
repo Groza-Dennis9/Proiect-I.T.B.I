@@ -5,7 +5,10 @@ mkdir -p "$ROOT_DIR"
 
 while true;
 do
-	current_users=$(who | cut -d' ' -f1)
+	if [ ! -d "$ROOT_DIR" ]; then
+		mkdir "$ROOT_DIR"
+	fi
+	current_users=$(who | cut -d' ' -f1 | sort -u)
 	for user in $current_users;
 	do
 		user_dir="$ROOT_DIR/$user"
