@@ -6,7 +6,7 @@ mkdir -p "$ROOT_DIR"
 while true;
 do
 	if [ ! -d "$ROOT_DIR" ]; then
-		mkdir "$ROOT_DIR"
+		mkdir -p  "$ROOT_DIR"
 	fi
 	current_users=$(who | cut -d' ' -f1 | sort -u)
 	for user in $current_users;
