@@ -6,4 +6,4 @@
 ## 🛠️ Technical skills 🛠️
 - **Language** : Shell Scripting
 - **Virtual Machine** : Ubuntu
-- **Shell Scripting concepts** : creating directories and files, finding users and their processes (who, ps), 
+- **Shell Scripting concepts** : creating directories and files, finding users and their processes (who, ps)
