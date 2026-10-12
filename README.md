@@ -1,4 +1,4 @@
-#UserFS
+# UserFS
 
 ## 📸 Overview 📸
 - A shell script that keeps track of active users and their processes updating every 30 seconds. 
